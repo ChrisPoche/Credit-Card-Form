@@ -1,22 +1,225 @@
+*{
+  /* outline: 1px solid red; */
+}
 .App {
-  text-align: center;
+  width: 100vw;
+}
+body{
+  background-color: lightblue;
+}
+#error{
+  color: red;
+  font-weight: 500;
+  margin-top: 10px;
+}
+#form{
+  margin: 40px auto -40px;
+  width: 400px;
+  height: 300px;
+  padding: 10px;
+  background-color: white;
+  /* border: 2px solid black; */
+  box-shadow: -7px -7px 5px rgba(0, 0, 0, .2);
+  display: block;
+  border-radius: 10px;
+}
+#chip {
+  display: inline-block;
+  margin-left: 40px;
+  margin-top: -30px;
+  width: 80px;
+  height: auto;
+  opacity: 60%;
+}
+#card {
+  display: block;
+  margin: 0 auto;
+  width: 600px;
+  height: 350px;
+  border-radius: 15px;
+  padding: 0px 0 0;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+#card.flipped {
+  transform: rotateY(180deg);
+  box-shadow: 3px -2.5px 1px rgb(172, 171, 171);
+
+}
+#card-front {
+  position: absolute;
+  width: 600px;
+  height: 350px;
+  border-radius: 15px;
+  padding: 0px 0 0;
+  backface-visibility: hidden;
+}
+#card-back {
+  position: absolute;
+  width: 600px;
+  height: 350px;
+  border-radius: 15px;
+  padding: 0px 0 0;
+  backface-visibility: hidden;
+  background-color: orange;
+  transform: rotateY(180deg);
 }
 
-.App-logo {
-  height: 40vmin;
+#card-provider{
+  position: relative;
+  top: 45px;
+  float: right;
+  right: 50px;
+  width:120px;
+  height:auto;
+}
+#card-number{
+  text-align: left;
+  font-size: 300%;
+  position: fixed;
+  display: block;
+  /* margin: 150px 38px 0; */
+  margin: 150px 28px 0;
+  width: 500px;
+  padding: 5px 10px;
+}
+#card-number, #card-name-value, #card-exp-month, #card-exp-year {
+/*, #card-holder, #card-exp { */
+  text-shadow: -1px -1px 6px rgba(0, 0, 0, .1);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                          supported by Chrome, Opera and Firefox */
+}
+#card-name, #card-exp{
+  position: relative;
+  top: 253px;
+  left: 30px;
+  padding: 10px;
+  height: 60px;
+  width: 380px;
+  display: inline-block;
+}
+#card-exp{
+  width: 120px;
+  margin-right: -60px;
+  float: right;
+}
+#card-holder, #card-expires{
+  font-weight: 400;
+  top: 45px;
+  margin: 0;
+}
+#card-expires {
+  padding-left: 5px;
+}
+#card-name-value {
+  margin: 0;
+}
+input, select {
+  height: 30px;
+  padding-left: 10px;
+  width: 380px;
+}
+select {
+  width: 100px;
+  margin-right: 10px;
+  height: 35px;
+}
+p{
+  margin: 5px 0;
+}
+.focus-name, .focus-exp{
+  border-radius: 7px;
+}
+.focus-number{
+  border-radius: 10px;
+}
+#exp, #cvv {
+  display: inline-block;
+  vertical-align: top;
+}
+#exp {
+  margin-right: 20px;
+}
+#card-cvv-form {
+  width: 139px;
+  margin-right: -10px;
+}
+#card-exp-month, #card-exp-year {
+  display: inline-block;
+  margin: 0;
+  padding: 5px;
+}
+#card-exp-month {
+  margin-right: 7px;
+}
+.inline {
+  display: inline-block;
+  margin-right: 5px;
+  line-height: 0;
+}
+#card-number, #card-name-value, #card-exp-month, #card-exp-year, .inline {
+  /* color: rgba(255, 255, 255, .9); */
+  color: transparent;
+
+  /* text-shadow: -2px -2px 2px rgba(255,255,255,1),
+                1px 1px 1px rgba(0,0,0,0.9),
+                2px -2px 4px rgba(255,255,255,1),
+                -2px -2px 2px rgba(0,0,0,0.9),
+                -2px 2px 1px rgba(0,0,0,0.9); */
+  -webkit-text-stroke:1.5px rgba(0,0,0,.125);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#card {
+  background: darkgoldenrod;
+  box-shadow: -3px -2.5px 1px rgb(131, 95, 1);
   color: white;
-}
 
-.App-link {
-  color: #09d3ac;
+  background: whitesmoke;
+  box-shadow: -3px -2.5px 1px rgb(172, 171, 171);
+  color: black;
+}
+#form-focus{
+  border: 2px solid rgba(255, 255, 255, .3);
+  border: 2px solid rgba(0, 0, 0, .3);
+  position: fixed;
+  transition: all 500ms;
+  z-index: 50;
+  visibility: hidden;
+}
+input[type=submit]{
+  /* visibility: hidden; */
+  margin-top: 80px;
+}
+.visa-color{
+  color: #0e4595;
+}
+#mag-stripe {
+  width: 100.05%;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  top: 60px;
+  margin-left: -1px;
+}
+#signature, #card-cvv {
+  width: 60%;
+  height: 50px;
+  background-color: white;
+  position: absolute;
+  top: 150px;
+  left: 20px;
+}
+#card-cvv {
+  width: 20%;
+  top:0;
+  left: 380px;
+}
+#card-cvv h4, h3 {
+  vertical-align: top;
+  margin: 1px 0 0 3px;
 }
