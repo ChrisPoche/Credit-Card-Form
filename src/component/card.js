@@ -4,7 +4,7 @@ import Provider from './provider.js';
 export default class Card extends React.Component {
     render() {
         return (
-            <div id='card'>
+            <div id='card' >
                 <div id='card-front'>
                     <Provider provider={this.props.cardDetails.provider} />
                     <h1 id='card-number' onClick={this.props.focusOnForm}>{this.props.cardDetails.cardNumber ? this.props.cardDetails.cardNumber : '#### #### #### ####'}</h1>
@@ -23,6 +23,7 @@ export default class Card extends React.Component {
                 <div id='card-back'>
                     <div id='mag-stripe'></div>
                     <div id='signature'>
+                        <h1 className='signature'>{this.props.cardDetails.cardName}</h1>
                         <div id='card-cvv'>
                             <h4>CVV</h4>
                             <h3>{this.props.cardDetails.cardCvv}</h3>

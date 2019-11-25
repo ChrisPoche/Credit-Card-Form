@@ -23,6 +23,7 @@ export default class Form extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         console.log('Submitting:', e);
+        this.props.onSubmit(e);
     }
     render() {
         return (
@@ -80,8 +81,8 @@ export default class Form extends React.Component {
                             // onBlur={this.props.cvvFocusOut} 
                             />
                         </div>
-                        {this.props.formDetails.status && <p id='status'>Test: Your information has successfully been processed</p>}
                     </div>
+                    { this.props.formDetails.status && <p id='status'>{this.props.formDetails.status}</p>}
                     <input type='submit' />
                 </form>
             </div >

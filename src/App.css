@@ -6,6 +6,7 @@
 }
 body{
   background-color: lightblue;
+  background-color: rgb(117, 117, 117);
 }
 #error{
   color: red;
@@ -204,7 +205,6 @@ input[type=submit]{
   background-color: black;
   position: absolute;
   top: 60px;
-  margin-left: -1px;
 }
 #signature, #card-cvv {
   width: 60%;
@@ -214,6 +214,15 @@ input[type=submit]{
   top: 150px;
   left: 20px;
 }
+.signature {
+  color: black;
+  font-family: 'Qwigley', cursive;
+  font-family: 'Great Vibes', cursive;
+  font-family: 'Parisienne', cursive;
+  font-family: 'Pinyon Script', cursive;
+  font-family: 'Alex Brush', cursive;
+  margin: 10px 15px;
+}
 #card-cvv {
   width: 20%;
   top:0;
@@ -222,4 +231,9 @@ input[type=submit]{
 #card-cvv h4, h3 {
   vertical-align: top;
   margin: 1px 0 0 3px;
+}
+#status {
+  color: black;
+  margin-top: 20px;
+  font-weight: 500;
 }

@@ -4,6 +4,7 @@ import './App.css';
 import Form from './component/form';
 import Card from './component/card';
 
+
 class App extends React.Component {
   state = {
     cardNumber: '',
@@ -29,7 +30,7 @@ class App extends React.Component {
     });
     window.addEventListener('keydown', (e) => {
       if (e.srcElement.name === 'card-number' || e.srcElement.name === 'card-cvv') {
-        if (e.keyCode > 57 && e.keyCode > 48) e.preventDefault();
+        if ((e.keyCode >= 57 && e.keyCode >= 48) && (e.keyCode >= 105 && e.keyCode >= 96)) e.preventDefault();
       }
       if (e.keyCode === 8 || e.keyCode === 46) this.setError('');
     });
@@ -135,7 +136,7 @@ class App extends React.Component {
     formFocus.style.width = `${coordinates[0].width}px`;
   }
   componentDidUpdate = () => {
-    // console.log(this.state);
+    console.log(this.state);
   }
   focusOnForm = (e) => {
     console.log('Clicked on Card - Focussing on Form');
@@ -145,8 +146,8 @@ class App extends React.Component {
     formInput.focus();
   }
   onSubmit = (e) => {
-    e.preventDefault();
-    this.setState({status: 'successful'});
+    console.log('onSubmit',e);
+    this.setState({status: 'Test: Your information has successfully been processed'});
   }
   render() {
     return (
@@ -157,7 +158,8 @@ class App extends React.Component {
           onCardChange={this.onCardChange}
           onCardCvvChange={this.onCardCvvChange} 
           changeFocus={this.changeFocus}
-          cvvFocusOut={this.cvvFocusOut} />
+          cvvFocusOut={this.cvvFocusOut}
+          onSubmit={this.onSubmit} />
         <div id='form-focus'></div>
         <Card
           cardDetails={this.state}
