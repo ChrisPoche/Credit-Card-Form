@@ -14,8 +14,11 @@ export default class Form extends React.Component {
     addYears = () => {
         let options = [];
         let now = new Date();
+        let month = now.getMonth();
         let year = now.getFullYear();
-        for (let i = 0; i <= 10; ++i) {
+        let yearOffset = month + 1 > parseInt(this.props.formDetails.expMonth) ? 1 : 0;
+        console.log('Month', month + 1, 'YearOffset', yearOffset, 'ExpMonth', parseInt(this.props.formDetails.expMonth));
+        for (let i = yearOffset; i <= 10; ++i) {
             options.push(<option key={year + i} value={year + i}>{year + i}</option>)
         }
         return options
@@ -35,7 +38,7 @@ export default class Form extends React.Component {
                         id='card-number-form'
                         autoComplete='off'
                         type='text'
-                        maxLength={this.props.formDetails.provider === 'American Express' ? '15' : '16'}
+                        maxLength={this.props.formDetails.provider === 'amex' ? '15' : '16'}
                         onChange={this.props.onCardNumberChange}
                         onFocus={this.props.changeFocus} />
                     <p>Card Name</p>
@@ -78,7 +81,6 @@ export default class Form extends React.Component {
                                 type='text'
                                 onChange={this.props.onCardChange}
                                 onFocus={this.props.changeFocus}
-                            // onBlur={this.props.cvvFocusOut} 
                             />
                         </div>
                     </div>
